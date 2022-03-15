@@ -2,7 +2,13 @@ import { Marker } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import ToolTipComponent from './ToolTipComponent';
-const CountryMarker = ({ position }) => {
+const CountryMarker = ({
+  position,
+  countryName,
+  confirmedCasesLabel,
+  deathsLabel,
+  recoveredLabel,
+}) => {
   return (
     <Marker
       position={position}
@@ -16,11 +22,10 @@ const CountryMarker = ({ position }) => {
     >
       {/* <PopupComponent /> */}
       <ToolTipComponent
-        countryName={'USA'}
-        confirmedCasesLabel={'Confirmed Cases'}
-        deathsLabel={'deaths'}
-        recoveredLabel={'recovered'}
-        lastUpdateLabel={'last update label'}
+        countryName={countryName}
+        confirmedCasesLabel={confirmedCasesLabel}
+        deathsLabel={deathsLabel}
+        recoveredLabel={recoveredLabel}
       />
     </Marker>
   );

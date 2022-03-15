@@ -6,15 +6,15 @@ const ToolTipComponent = ({
   confirmedCasesLabel,
   deathsLabel,
   recoveredLabel,
-  lastUpdateLabel,
 }) => {
+  var numeral = require('numeral');
+
   return (
     <Tooltip>
       <h1>{countryName}</h1>
-      <p>Confirmed: {confirmedCasesLabel}</p>
-      <p>Deaths: {deathsLabel}</p>
-      <p>Recovered: {recoveredLabel}</p>
-      <p>Last Update: {lastUpdateLabel}</p>
+      <p>Confirmed: {numeral(confirmedCasesLabel).format('Oa')}</p>
+      <p>Deaths: {numeral(deathsLabel).format('Oa')}</p>
+      <p>Recovered: {numeral(recoveredLabel).format('Oa')}</p>
     </Tooltip>
   );
 };

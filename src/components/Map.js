@@ -36,6 +36,10 @@ const Map = () => {
             singleCountry.countryInfo.lat,
             singleCountry.countryInfo.long,
           ]}
+          countryName={singleCountry.country}
+          confirmedCasesLabel={singleCountry.cases}
+          deathsLabel={singleCountry.deaths}
+          recoveredLabel={singleCountry.recovered}
         />
       ))}
 
