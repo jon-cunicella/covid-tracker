@@ -9,11 +9,6 @@ const Map = () => {
     { longitude: '', latitude: '' },
   ]);
   const latLongLists = [];
-
-  const testList = [
-    { latitude: 0, longitude: 0 },
-    { latitude: 10, longitude: 10 },
-  ];
   async function fetchCountryPins() {
     try {
       const response = await axios.get(
@@ -26,7 +21,6 @@ const Map = () => {
         });
       });
       setLatLongList(latLongLists);
-      console.log(latLongLists);
     } catch (error) {
       console.error(error);
     }
