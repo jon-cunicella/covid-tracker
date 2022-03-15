@@ -2,32 +2,23 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import CountryMarker from './CountryMarker';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Map = () => {
-  const axios = require('axios').default;
-  const [latLongList, setLatLongList] = useState([
-    { longitude: '', latitude: '' },
-  ]);
-  const latLongLists = [];
-  async function fetchCountryPins() {
+  const [data, setData] = useState([]);
+  const [latLong, setLatLong] = useState([]);
+  const fetchData = async () => {
     try {
-      const response = await axios.get(
-        'https://corona.lmao.ninja/v2/countries?yesterday=&sort='
+      const response = await axios(
+        'https://corona.lmao.ninja/v2/countries?yesterday&sort'
       );
-      response.data.map((country) => {
-        latLongLists.push({
-          latitude: country.countryInfo.lat,
-          longitude: country.countryInfo.long,
-        });
-      });
-      setLatLongList(latLongLists);
-    } catch (error) {
-      console.error(error);
+      setData(response.data);
+    } catch (err) {
+      console.error(err);
     }
-  }
-
+  };
   useEffect(() => {
-    fetchCountryPins();
+    fetchData();
   }, []);
   return (
     <MapContainer
@@ -39,9 +30,16 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
-      {latLongList.map((entry) => (
-        <CountryMarker position={[entry.latitude, entry.longitude]} />
+      {data.map((singleCountry) => (
+        <CountryMarker
+          position={[
+            singleCountry.countryInfo.lat,
+            singleCountry.countryInfo.long,
+          ]}
+        />
       ))}
+
+      <CountryMarker position={[0, 0]} />
     </MapContainer>
   );
 };
