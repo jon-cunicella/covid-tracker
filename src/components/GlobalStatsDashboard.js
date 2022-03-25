@@ -1,49 +1,81 @@
-const GlobalStatsDashboard = () => {
+const GlobalStatsDashboard = ({
+  totalTests,
+  totalTestsPerOneMillion,
+  totalCases,
+  totalCasesPerOneMillion,
+  deaths,
+  deathsPerOneMillion,
+  active,
+  critical,
+  recovered,
+}) => {
+  var numeral = require('numeral');
+
   return (
     <div className='outer'>
       <div className='row'>
         <p className='item'>
-          <div className='stat-item'>
-            <p>-</p>
-            <p>Total Tests</p>
-            <p>-</p>
-            <p>Per 1 million</p>
-          </div>
+          <p>
+            {totalTests > 0 ? numeral(totalTests).format('O,O') : '-'} <br />
+            Total Tests
+          </p>
+          <p className='stat-item-secondary'>
+            {totalTestsPerOneMillion > 0
+              ? numeral(totalTestsPerOneMillion).format('O,O')
+              : '-'}{' '}
+            <br />
+            Per 1 million
+          </p>
         </p>
         <p className='item'>
-          <div className='stat-item'>
-            <p>-</p>
-            <p>Total Cases</p>
-            <p>-</p>
-            <p>Per 1 million</p>
-          </div>
+          <p>
+            {totalCases > 0 ? numeral(totalCases).format('O,O') : '-'} <br />
+            Total Cases
+          </p>
+          <p className='stat-item-secondary'>
+            {totalCasesPerOneMillion > 0
+              ? numeral(totalCasesPerOneMillion).format('O,O')
+              : '-'}{' '}
+            <br />
+            Per 1 million
+          </p>
         </p>
         <p className='item'>
-          <div className='stat-item'>
-            <p>-</p>
-            <p>Total Tests</p>
-            <p>-</p>
-            <p>Per 1 million</p>
-          </div>
+          <p>
+            {deaths > 0 ? numeral(deaths).format('O,O') : '-'} <br />
+            Total Deaths
+          </p>
+          <p className='stat-item-secondary'>
+            {deathsPerOneMillion > 0
+              ? numeral(deathsPerOneMillion).format('O,O')
+              : '-'}{' '}
+            <br />
+            Per 1 million
+          </p>
         </p>
       </div>
       <div className='row'>
         <p className='item'>
           <div className='stat-item'>
-            <p>-</p>
-            <p>tested</p>
+            <p>
+              {active > 0 ? numeral(active).format('O,O') : '-'} <br /> Active
+            </p>
           </div>
         </p>
         <p className='item'>
           <div className='stat-item'>
-            <p>-</p>
-            <p>Critical</p>
+            <p>
+              {critical > 0 ? numeral(critical).format('O,O') : '-'} <br />
+              Critical
+            </p>
           </div>
         </p>
         <p className='item'>
           <div className='stat-item'>
-            <p>-</p>
-            <p>Recovered</p>
+            <p>
+              {recovered > 0 ? numeral(recovered).format('O,O') : '-'} <br />{' '}
+              Recovered{' '}
+            </p>
           </div>
         </p>
       </div>
