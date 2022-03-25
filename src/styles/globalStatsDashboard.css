@@ -1,0 +1,25 @@
+.outer {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column; /* added */
+  height: 40vh;
+}
+
+.row {
+  display: flex;
+  flex: 1; /* added */
+  justify-content: space-between;
+}
+
+.item {
+  flex: 1; /* added */
+  text-align: center;
+  border: 1px solid blue;
+  margin: 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4em 0 0.5em;
+}
