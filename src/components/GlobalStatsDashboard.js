@@ -2,14 +2,50 @@ const GlobalStatsDashboard = () => {
   return (
     <div className='outer'>
       <div className='row'>
-        <h1 className='item'>Total Tests</h1>
-        <h1 className='item'>Total Cases</h1>
-        <h1 className='item'>Total Deaths</h1>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>Total Tests</p>
+            <p>-</p>
+            <p>Per 1 million</p>
+          </div>
+        </p>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>Total Cases</p>
+            <p>-</p>
+            <p>Per 1 million</p>
+          </div>
+        </p>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>Total Tests</p>
+            <p>-</p>
+            <p>Per 1 million</p>
+          </div>
+        </p>
       </div>
       <div className='row'>
-        <h1 className='item'>Active</h1>
-        <h1 className='item'>Critical</h1>
-        <h1 className='item'>Recovered</h1>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>tested</p>
+          </div>
+        </p>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>Critical</p>
+          </div>
+        </p>
+        <p className='item'>
+          <div className='stat-item'>
+            <p>-</p>
+            <p>Recovered</p>
+          </div>
+        </p>
       </div>
     </div>
   );
