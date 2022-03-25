@@ -6,11 +6,10 @@ import axios from 'axios';
 
 const Map = () => {
   const [data, setData] = useState([]);
-  const [latLong, setLatLong] = useState([]);
   const fetchData = async () => {
     try {
       const response = await axios(
-        'https://corona.lmao.ninja/v2/countries?yesterday&sort'
+        'https://disease.sh/v2/countries?yesterday&sort'
       );
       setData(response.data);
     } catch (err) {
@@ -23,8 +22,8 @@ const Map = () => {
   return (
     <MapContainer
       center={[17.5707, 3.9962]}
-      zoom={3}
-      style={{ height: '100vh', width: '100wh' }}
+      zoom={2}
+      style={{ height: '50vh', width: '100wh' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -42,8 +41,6 @@ const Map = () => {
           recoveredLabel={singleCountry.recovered}
         />
       ))}
-
-      <CountryMarker position={[0, 0]} />
     </MapContainer>
   );
 };
