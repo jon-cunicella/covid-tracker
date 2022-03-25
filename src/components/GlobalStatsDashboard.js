@@ -34,7 +34,7 @@ const GlobalStatsDashboard = ({
           </p>
           <p className='stat-item-secondary'>
             {totalCasesPerOneMillion > 0
-              ? numeral(deathsPerOneMillion).format('O,O')
+              ? numeral(totalCasesPerOneMillion).format('O,O')
               : '-'}{' '}
             <br />
             Per 1 million

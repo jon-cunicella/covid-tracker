@@ -5,18 +5,18 @@
 .outer {
   display: flex;
   min-height: 100%;
-  flex-direction: column; /* added */
+  flex-direction: column;
   height: 40vh;
 }
 
 .row {
   display: flex;
-  flex: 1; /* added */
+  flex: 1;
   justify-content: space-between;
 }
 
 .item {
-  flex: 1; /* added */
+  flex: 1;
   text-align: center;
   border: 1px solid #263238;
   background-color: #081217;

@@ -17,7 +17,6 @@ const Map = () => {
       const response2 = await axios('https://disease.sh/v2/all?yesterday=');
       setData(response.data);
       setAllData(response2.data);
-      console.log(response2.data);
     } catch (err) {
       console.error(err);
     }
